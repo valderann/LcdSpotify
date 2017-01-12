@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{96C4AC4B-0C44-4C0D-B1B0-C5755640E3FE}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>spotifyLcd</RootNamespace>
     <AssemblyName>spotifyLcd</AssemblyName>
@@ -50,10 +50,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bass.Net, Version=2.4.10.3, Culture=neutral, PublicKeyToken=b7566c273e6ef480, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Library\Bass.Net.dll</HintPath>
-    </Reference>
     <Reference Include="NAudio">
       <HintPath>Library\NAudio.dll</HintPath>
     </Reference>
@@ -72,15 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\SpotifyTrack.cs" />
-    <Compile Include="Services\Audio\EqualizerWasasapi.cs" />
     <Compile Include="Services\Audio\EqualizerNaudio.cs" />
     <Compile Include="Services\Audio\IEqualizer.cs" />
+    <Compile Include="Services\Audio\SampleAggregator.cs" />
+    <Compile Include="Services\Lcd\BackgroundLed.cs" />
     <Compile Include="Services\Lcd\ILcdPannel.cs" />
+    <Compile Include="Services\Lcd\BackgroundLedWrapper.cs" />
     <Compile Include="Services\Lcd\MonoLcdPannel.cs" />
     <Compile Include="Services\Lcd\LcdWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Lcd\SpotifyLcdPannel.cs" />
+    <Compile Include="Services\Lyrics\LyricsWebservice.cs" />
     <Compile Include="Services\Spotify\SpotifyChangedEvent.cs" />
     <Compile Include="Services\Spotify\SpotifyTracker.cs" />
     <Compile Include="Services\Spotify\SpotifyNative.cs" />
@@ -89,6 +88,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <Compile Include="Services\Webservices\Webservice.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -108,13 +108,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bass.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="basswasapi.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="LogitechLcd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LogitechLedEnginesWrapper.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
