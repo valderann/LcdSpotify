@@ -63,10 +63,7 @@ namespace spotifyLcd
                     EnsureSpotifyIsRunning();
 
                     _hWindow = GetSpotifyWindowHandle();
-                    if (_hWindow == -1)
-                    {
-                       //throw new Exception("Spotify window handle not found");
-                    }
+
                     _strWindowTitle = ""; 
 
                     try
@@ -82,7 +79,6 @@ namespace spotifyLcd
                     catch (Exception ex)
                     {
                         Uninitialize();
-                       // throw ex;
                     }
                 }
 
